@@ -1,0 +1,11 @@
+.pagina-quadro div{
+    display: flex;
+}
+
+.pagina-quadro article{
+    width: 100px;
+    margin: 10px;
+    background: #0b1e30;
+    padding: 10px;
+    border-radius: 5px;
+}
