@@ -1,4 +1,4 @@
-function IndicadoresController($scope, $firebaseAuth, $state){
+function IndicadoresController($scope, $firebaseObject, $state, $firebaseAuth, $firebase ){
     // var auth = $firebaseAuth();
     // var ref;
     //
@@ -19,9 +19,39 @@ function IndicadoresController($scope, $firebaseAuth, $state){
     //     $scope.listas = $firebaseArray(ref);
     // }
 
+    var auth = $firebaseAuth();
+    var ref;
+
+    $scope.logout = logout;
+    $scope.novoAbastecimento = novoAbastecimento;
+
+
+    auth.$onAuthStateChanged(buscarStatus);
+
+    function buscarStatus(firebaseUser){
+      if(!firebaseUser){
+        console.log("Deslogado");
+        return;
+      }
+      $scope.usuario = firebaseUser;
+      ref = firebase.database().ref('usuarios');
+
+      var obj = $firebaseObject(ref);
+      obj.$loaded().then(function() {
+             // To iterate the key/value pairs of the object, use angular.forEach()
+             angular.forEach(obj, function(value, key) {
+                console.log(key, value);
+             });
+           });
+      $scope.dados = obj;
+
+      console.log($scope.dados);
+
+    }
+
     function logout(){
         console.log(2);
-        // auth.$signOut();
+        auth.$signOut();
         $state.go('login');
     }
 

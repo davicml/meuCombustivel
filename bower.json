@@ -1,0 +1,22 @@
+{
+  "name": "meuCombustivel",
+  "homepage": "https://github.com/MarcosSchmitz/meuCombustivel",
+  "authors": [
+    "davicml <davicml@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "ui-router#^1.0.3+hybrid-2.0.0-2",
+    "angularfire": "^2.3.0",
+    "angular": "^1.6.4"
+  }
+}

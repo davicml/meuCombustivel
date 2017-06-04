@@ -1,11 +1,23 @@
-.pagina-quadro div{
-    display: flex;
+body{
+  background: #fff;
 }
 
-.pagina-quadro article{
-    width: 100px;
-    margin: 10px;
-    background: #0b1e30;
-    padding: 10px;
-    border-radius: 5px;
+.quadro{
+  height: 750px;
+  background: #2b3e50;
+}
+
+.menuLateral{
+
+  height: 750px;
+  background: #6b7e90;
+}
+
+.menuLateral h1{
+  padding-top: 50px;
+  font-size: 20px;
+}
+
+button.menu{
+  margin: 10px;
 }
