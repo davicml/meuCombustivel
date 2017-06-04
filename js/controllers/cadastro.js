@@ -1,7 +1,5 @@
-function CadastroController($scope, $firebaseAuth, $firebaseArray, $state, $firebaseObject){
+function CadastroController($scope, $firebaseAuth, $firebaseObject, $state, $firebaseObject){
     var auth = $firebaseAuth();
-    var ref = firebase.database().ref('usuarios'); //Criar a referência da variavel no banco de dados
-    var usuarios = $firebaseArray(ref); // Referencia o vetor com as informacoes do usuario
     $scope.dados = {};
     $scope.cadastrar = cadastrar;
 
@@ -9,28 +7,21 @@ function CadastroController($scope, $firebaseAuth, $firebaseArray, $state, $fire
         auth.$createUserWithEmailAndPassword($scope.dados.email, $scope.dados.senha)
         .then(function(firebaseUser) {
 
+            //Pegar referência do banco de dados. Criar um objeto com o uid do usuário
+            //dentro do objeto usuarios, para conformidade com as regras de acesso.
+            var ref = firebase.database().ref('usuarios').child(firebaseUser.uid);
+            var usuario = $firebaseObject(ref);
 
-          auth.$onAuthStateChanged(buscarStatus);
+            // Filtra as informacoes que serao adicionados ao banco de dados. Usado para não salvar a senha aberta
+            usuario.nome = $scope.dados.nome;
+            usuario.marca = $scope.dados.marca;
+            usuario.ano = $scope.dados.ano;
 
-          function buscarStatus(firebaseUser){
-            if(!firebaseUser){
-              return;
-            }
-            $scope.usuarios = firebaseUser;
+            usuario.$save();
 
-            var usuario = {  // filtra as informacoes que serao adicionados ao banco de dados. Usado para não salvar a senha aberta
-              nome: $scope.dados.nome,
-              marca: $scope.dados.marca,
-              ano: $scope.dados.ano,
-              uid: $scope.usuarios.uid
-            }
-            usuarios.$add(usuario);
-          }
-
-
-          $state.go('indicadores');
+            $state.go('indicadores');
         }).catch(function(error) {
-         console.log(error)
+            console.log(error)
         });
     }
 }

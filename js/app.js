@@ -6,6 +6,5 @@ angular.module('meuCombustivel').controller("IndicadoresController", Indicadores
 angular.module('meuCombustivel').controller("NovoAbastecimentoController", NovoAbastecimentoController);
 angular.module('meuCombustivel').controller("EditaUsuarioController", EditaUsuarioController);
 angular.module('meuCombustivel').controller("EditaAbastecimentoController", EditaAbastecimentoController);
-angular.module('meuCombustivel').controller("MenuLateralController", MenuLateralController);
 
 angular.module('meuCombustivel').config(rotas);

@@ -34,19 +34,18 @@ function IndicadoresController($scope, $firebaseObject, $state, $firebaseAuth, $
         return;
       }
       $scope.usuario = firebaseUser;
-      ref = firebase.database().ref('usuarios');
+      ref = firebase.database().ref('usuarios').child($scope.usuario.uid);
 
       var obj = $firebaseObject(ref);
-      obj.$loaded().then(function() {
-             // To iterate the key/value pairs of the object, use angular.forEach()
-             angular.forEach(obj, function(value, key) {
-                console.log(key, value);
-             });
-           });
-      $scope.dados = obj;
+      obj.$loaded()
+        .then(function(data) {
+          console.log(obj); // true
+        })
+        .catch(function(error) {
+          console.error("Error:", error);
+        });
 
-      console.log($scope.dados);
-
+        $scope.dados = obj;
     }
 
     function logout(){

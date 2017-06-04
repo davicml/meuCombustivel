@@ -12,12 +12,12 @@
     <div class="menuLateral col-xs-3">
       <h1>Meu Combustível</h1>
 
+
+
       <div class="btn-group-vertical" role="group" aria-label="...">
-        <button class="btn btn-default menu" ng-click="novoAbastecimento()">Novo Abastecimento</button>
+        <button class="btn btn-default menu" ui-sref="novoAbastecimento">Novo Abastecimento</button>
         <p></p>
-        <button class="btn btn-default menu" ng-click="login()">Login</button>
-        <p></p>
-        <button class="btn btn-default menu" ng-click="login()">Login</button>
+        <button class="btn btn-default menu" ui-sref="indicadores">Lista de Abastecimentos</button>
         <p></p>
       </div>
     </div>
@@ -52,7 +52,6 @@
     <script src="js/controllers/novoAbastecimento.js"></script>
     <script src="js/controllers/editaAbastecimento.js"></script>
     <script src="js/controllers/editaUsuario.js"></script>
-    <script src="js/controllers/menuLateral.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
