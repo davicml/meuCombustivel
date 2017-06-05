@@ -2,12 +2,27 @@
     <h2>Bem vindo, {{dados.nome}}</h2>
     <button class="btn btn-info" ng-click="novoAbastecimento()">Novo Abastecimento</button>
     <button class="btn btn-danger" ng-click="logout()">Logout</button>
-    <!-- <input ng-model="novaLista">
-    <button ng-click="criarLista()">+</button>
 
-    <div class="">
-        <article ng-repeat="lista in listas">
-            <p>{{lista.nome}}</p>
-        </article>
-    </div> -->
+    <div class="row">
+      <br>
+
+          <div class="panel panel-default">
+            <div class="panel-heading col-xs-12">
+              <p class="col-xs-2">Data</p>
+              <p class="col-xs-2">Km</p>
+              <p class="col-xs-2">Litros</p>
+              <p class="col-xs-4">Tipo de Combustível</p>
+              <p class="col-xs-2">Valor</p>
+            </div>
+            <div class="panel-body">
+              <article class="col-xs-12" ng-repeat="abastecimento in dados.abastecimentos">
+                <p class="col-xs-2">{{abastecimento.data}}</p>
+                <p class="col-xs-2">{{abastecimento.km}}</p>
+                <p class="col-xs-2">{{abastecimento.litros}}</p>
+                <p class="col-xs-4">{{abastecimento.tipoCombustivel}}</p>
+                <p class="col-xs-2">R${{abastecimento.valor}}</p>
+            </article>
+          </div>
+        </div>
+    </div>
 </section>

@@ -1,4 +1,6 @@
-function CadastroController($scope, $firebaseAuth, $firebaseObject, $state, $firebaseObject){
+var countAbst = 0;
+
+function CadastroController($scope, $firebaseAuth, $firebaseObject, $state, $firebaseObject, $rootScope){
     var auth = $firebaseAuth();
     $scope.dados = {};
     $scope.cadastrar = cadastrar;
@@ -16,6 +18,9 @@ function CadastroController($scope, $firebaseAuth, $firebaseObject, $state, $fir
             usuario.nome = $scope.dados.nome;
             usuario.marca = $scope.dados.marca;
             usuario.ano = $scope.dados.ano;
+            usuario.modelo = $scope.dados.modelo;
+            usuario.qtdeAbastecimento = countAbst;
+
 
             usuario.$save();
 
