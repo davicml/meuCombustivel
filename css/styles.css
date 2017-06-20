@@ -18,6 +18,34 @@ body{
   font-size: 20px;
 }
 
+.menuSuperior{
+  padding-left: 0px;
+  padding-right: 0px;
+  height: 102px;
+  background: #6b7aff;
+}
+
+.menuSuperior h1{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 20px;
+}
+
 button.menu{
   margin: 2px;
+}
+
+nav{
+  float: right;
+  margin-top: 40px;
+  margin-right: 40px;
+  font-size: 20px;
+}
+
+a{
+  color: white;
+}
+
+.showLogin{
+  display: none;
 }

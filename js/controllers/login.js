@@ -1,5 +1,8 @@
-function LoginController($scope, $firebaseAuth, $state){
+function LoginController($scope, $firebaseAuth, $state, $firebase){
+    var mostrarLogin = document.querySelectorAll("nav");
     var auth = $firebaseAuth();
+    var provider = new firebase.auth.FacebookAuthProvider();
+    var statusLoginFace = {};
     $scope.dados = {};
     $scope.login = login;
 
@@ -10,5 +13,15 @@ function LoginController($scope, $firebaseAuth, $state){
         }).catch(function(error) {
             console.log(error)
         });
+      }
+
+    function loginFace(){
+      FB.getLoginStatus(function(statusLoginFace) {
+          // statusChangeCallback(statusLoginFace);
+          console.log(statusLoginFace);
+      });
+
     }
+
+
 }

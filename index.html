@@ -9,10 +9,17 @@
 <body ng-app="meuCombustivel">
 
   <div class="container">
+
+    <div class="menuSuperior col-xs-12" ng-controller="showLoginController">
+      <div ng-show="myValue" class="ng-hide">
+        <nav>
+          <a ui-sref="login">Login</a>
+        </nav>
+      </div>
+    </div>
+
     <div class="menuLateral col-xs-3">
       <h1>Meu Combustível</h1>
-
-
 
       <div class="btn-group-vertical" role="group" aria-label="...">
         <button class="btn btn-default menu" ui-sref="novoAbastecimento">Novo Abastecimento</button>
@@ -22,7 +29,7 @@
       </div>
     </div>
 
-    <div class="quadro col-xs-9">
+    <div class=" quadro col-xs-9">
       <h1>Meu Combustível</h1>
       <ui-view></ui-view>
     </div>
@@ -45,6 +52,7 @@
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+    <script src="js/menuSuperior.js"></script>
     <script src="js/config.js"></script>
     <script src="js/controllers/cadastro.js"></script>
     <script src="js/controllers/indicadores.js"></script>

@@ -7,7 +7,6 @@ function IndicadoresController($scope, $firebaseObject, $state, $firebaseAuth, $
     $scope.novoAbastecimento = novoAbastecimento;
     $scope.dado = [];
 
-
     auth.$onAuthStateChanged(buscarStatus);
 
     function buscarStatus(firebaseUser){
